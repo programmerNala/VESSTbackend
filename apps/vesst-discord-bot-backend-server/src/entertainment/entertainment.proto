@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+                 package entertainment;
+service EntertainmentService {
+ rpc createEntertainment (EntertainmentCreateInput) returns (Entertainment) {}
+rpc entertainments (findManyParams) returns (stream Entertainment) {}
+rpc entertainment (EntertainmentWhereUniqueInput) returns (Entertainment) {}
+rpc updateEntertainment (EntertainmentUpdateInput) returns (Entertainment) {}
+rpc deleteEntertainment (EntertainmentWhereUniqueInput) returns (Entertainment) {} 
+ }
+message EntertainmentCreateInput {
+string createdAt = 1;
+string details = 2;
+string id = 3;
+string name = 4;
+repeated string typeField = 5;
+string updatedAt = 6;
+};
+message Entertainment {
+string createdAt = 1;
+string details = 2;
+string id = 3;
+string name = 4;
+repeated string typeField = 5;
+string updatedAt = 6;
+};
+message EntertainmentWhereUniqueInput {
+string createdAt = 1;
+string details = 2;
+string id = 3;
+string name = 4;
+repeated string typeField = 5;
+string updatedAt = 6;
+};
+message EntertainmentUpdateInput {
+string createdAt = 1;
+string details = 2;
+string id = 3;
+string name = 4;
+repeated string typeField = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};

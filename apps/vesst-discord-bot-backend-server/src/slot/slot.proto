@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+                 package slot;
+service SlotService {
+ rpc createSlot (SlotCreateInput) returns (Slot) {}
+rpc slots (findManyParams) returns (stream Slot) {}
+rpc slot (SlotWhereUniqueInput) returns (Slot) {}
+rpc updateSlot (SlotUpdateInput) returns (Slot) {}
+rpc deleteSlot (SlotWhereUniqueInput) returns (Slot) {} 
+ }
+message SlotCreateInput {
+int32 bid = 1;
+string createdAt = 2;
+string description = 3;
+string id = 4;
+string metrics = 5;
+string name = 6;
+string updatedAt = 7;
+};
+message Slot {
+int32 bid = 1;
+string createdAt = 2;
+string description = 3;
+string id = 4;
+string metrics = 5;
+string name = 6;
+string updatedAt = 7;
+};
+message SlotWhereUniqueInput {
+int32 bid = 1;
+string createdAt = 2;
+string description = 3;
+string id = 4;
+string metrics = 5;
+string name = 6;
+string updatedAt = 7;
+};
+message SlotUpdateInput {
+int32 bid = 1;
+string createdAt = 2;
+string description = 3;
+string id = 4;
+string metrics = 5;
+string name = 6;
+string updatedAt = 7;
+};
+message findManyParams {
+
+};

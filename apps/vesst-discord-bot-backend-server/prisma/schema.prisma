@@ -1,0 +1,111 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Slot {
+  bid         Float?
+  createdAt   DateTime @default(now())
+  description String?
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  metrics     Json?
+  name        String?
+  updatedAt   DateTime @updatedAt
+  user        User?    @relation(fields: [userId], references: [id])
+  userId      String?  @db.ObjectId
+}
+
+model Vouch {
+  badge     String?
+  category  String?
+  challenge String?
+  createdAt DateTime  @default(now())
+  date      DateTime?
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  updatedAt DateTime  @updatedAt
+  user      User?     @relation(fields: [userId], references: [id])
+  userId    String?   @db.ObjectId
+  vouchText String?
+}
+
+model Embed {
+  color       String?
+  createdAt   DateTime  @default(now())
+  dateCreated DateTime?
+  description String?
+  footer      String?
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model Ticket {
+  createdAt   DateTime            @default(now())
+  dateClosed  DateTime?
+  dateCreated DateTime?
+  id          String              @id @default(auto()) @map("_id") @db.ObjectId
+  issue       String?
+  priority    EnumTicketPriority?
+  status      EnumTicketStatus?
+  updatedAt   DateTime            @updatedAt
+  user        User?               @relation(fields: [userId], references: [id])
+  userId      String?             @db.ObjectId
+}
+
+model Security {
+  action    String?
+  createdAt DateTime            @default(now())
+  date      DateTime?
+  id        String              @id @default(auto()) @map("_id") @db.ObjectId
+  status    EnumSecurityStatus?
+  updatedAt DateTime            @updatedAt
+  user      User?               @relation(fields: [userId], references: [id])
+  userId    String?             @db.ObjectId
+}
+
+model Entertainment {
+  createdAt DateTime                    @default(now())
+  details   Json?
+  id        String                      @id @default(auto()) @map("_id") @db.ObjectId
+  name      String?
+  typeField EnumEntertainmentTypeField?
+  updatedAt DateTime                    @updatedAt
+}
+
+model User {
+  createdAt  DateTime   @default(now())
+  discordId  String?
+  email      String?    @unique
+  firstName  String?
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  lastName   String?
+  password   String
+  reputation Int?
+  roles      Json
+  securities Security[]
+  slots      Slot[]
+  tickets    Ticket[]
+  updatedAt  DateTime   @updatedAt
+  username   String     @unique
+  vouches    Vouch[]
+}
+
+enum EnumTicketPriority {
+  Option1
+}
+
+enum EnumTicketStatus {
+  Option1
+}
+
+enum EnumSecurityStatus {
+  Option1
+}
+
+enum EnumEntertainmentTypeField {
+  Option1
+}

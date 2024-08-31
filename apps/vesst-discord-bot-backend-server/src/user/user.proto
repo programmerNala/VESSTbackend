@@ -1,0 +1,187 @@
+syntax = "proto3";
+
+                 package user;
+service UserService {
+ rpc createUser (UserCreateInput) returns (User) {}
+rpc users (findManyParams) returns (stream User) {}
+rpc user (UserWhereUniqueInput) returns (User) {}
+rpc updateUser (UserUpdateInput) returns (User) {}
+rpc deleteUser (UserWhereUniqueInput) returns (User) {}
+rpc findManyUser (UserWhereUniqueInput) returns (stream Security) {}
+rpc updateUser (SecurityParams) returns (stream Security) {}
+rpc connectUser (SecurityParams) returns (Security) {}
+rpc disconnectUser (SecurityParams) returns (Security) {}
+rpc findManyUser (UserWhereUniqueInput) returns (stream Slot) {}
+rpc updateUser (SlotParams) returns (stream Slot) {}
+rpc connectUser (SlotParams) returns (Slot) {}
+rpc disconnectUser (SlotParams) returns (Slot) {}
+rpc findManyUser (UserWhereUniqueInput) returns (stream Ticket) {}
+rpc updateUser (TicketParams) returns (stream Ticket) {}
+rpc connectUser (TicketParams) returns (Ticket) {}
+rpc disconnectUser (TicketParams) returns (Ticket) {}
+rpc findManyUser (UserWhereUniqueInput) returns (stream Vouch) {}
+rpc updateUser (VouchParams) returns (stream Vouch) {}
+rpc connectUser (VouchParams) returns (Vouch) {}
+rpc disconnectUser (VouchParams) returns (Vouch) {} 
+ }
+message UserCreateInput {
+string createdAt = 1;
+string discordId = 2;
+string email = 3;
+string firstName = 4;
+string id = 5;
+string lastName = 6;
+string password = 7;
+int32 reputation = 8;
+repeated string roles = 9;
+repeated Security securities = 10;
+repeated Slot slots = 11;
+repeated Ticket tickets = 12;
+string updatedAt = 13;
+string username = 14;
+repeated Vouch vouches = 15;
+};
+message User {
+string createdAt = 1;
+string discordId = 2;
+string email = 3;
+string firstName = 4;
+string id = 5;
+string lastName = 6;
+string password = 7;
+int32 reputation = 8;
+repeated string roles = 9;
+repeated Security securities = 10;
+repeated Slot slots = 11;
+repeated Ticket tickets = 12;
+string updatedAt = 13;
+string username = 14;
+repeated Vouch vouches = 15;
+};
+message UserWhereUniqueInput {
+string createdAt = 1;
+string discordId = 2;
+string email = 3;
+string firstName = 4;
+string id = 5;
+string lastName = 6;
+string password = 7;
+int32 reputation = 8;
+repeated string roles = 9;
+repeated Security securities = 10;
+repeated Slot slots = 11;
+repeated Ticket tickets = 12;
+string updatedAt = 13;
+string username = 14;
+repeated Vouch vouches = 15;
+};
+message UserUpdateInput {
+string createdAt = 1;
+string discordId = 2;
+string email = 3;
+string firstName = 4;
+string id = 5;
+string lastName = 6;
+string password = 7;
+int32 reputation = 8;
+repeated string roles = 9;
+repeated Security securities = 10;
+repeated Slot slots = 11;
+repeated Ticket tickets = 12;
+string updatedAt = 13;
+string username = 14;
+repeated Vouch vouches = 15;
+};
+message findManyParams {
+
+};
+message Security {
+string action = 1;
+string createdAt = 2;
+string date = 3;
+string id = 4;
+repeated string status = 5;
+string updatedAt = 6;
+};
+message SecurityWhereUniqueInput {
+string action = 1;
+string createdAt = 2;
+string date = 3;
+string id = 4;
+repeated string status = 5;
+string updatedAt = 6;
+};
+message SecurityParams {
+UserWhereUniqueInput userWhereUniqueInput = 1;
+SecurityWhereUniqueInput securityWhereUniqueInput = 2;
+};
+message Slot {
+int32 bid = 1;
+string createdAt = 2;
+string description = 3;
+string id = 4;
+string metrics = 5;
+string name = 6;
+string updatedAt = 7;
+};
+message SlotWhereUniqueInput {
+int32 bid = 1;
+string createdAt = 2;
+string description = 3;
+string id = 4;
+string metrics = 5;
+string name = 6;
+string updatedAt = 7;
+};
+message SlotParams {
+UserWhereUniqueInput userWhereUniqueInput = 1;
+SlotWhereUniqueInput slotWhereUniqueInput = 2;
+};
+message Ticket {
+string createdAt = 1;
+string dateClosed = 2;
+string dateCreated = 3;
+string id = 4;
+string issue = 5;
+repeated string priority = 6;
+repeated string status = 7;
+string updatedAt = 8;
+};
+message TicketWhereUniqueInput {
+string createdAt = 1;
+string dateClosed = 2;
+string dateCreated = 3;
+string id = 4;
+string issue = 5;
+repeated string priority = 6;
+repeated string status = 7;
+string updatedAt = 8;
+};
+message TicketParams {
+UserWhereUniqueInput userWhereUniqueInput = 1;
+TicketWhereUniqueInput ticketWhereUniqueInput = 2;
+};
+message Vouch {
+string badge = 1;
+string category = 2;
+string challenge = 3;
+string createdAt = 4;
+string date = 5;
+string id = 6;
+string updatedAt = 7;
+string vouchText = 8;
+};
+message VouchWhereUniqueInput {
+string badge = 1;
+string category = 2;
+string challenge = 3;
+string createdAt = 4;
+string date = 5;
+string id = 6;
+string updatedAt = 7;
+string vouchText = 8;
+};
+message VouchParams {
+UserWhereUniqueInput userWhereUniqueInput = 1;
+VouchWhereUniqueInput vouchWhereUniqueInput = 2;
+};
