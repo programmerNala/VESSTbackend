@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+                 package embed;
+service EmbedService {
+ rpc createEmbed (EmbedCreateInput) returns (Embed) {}
+rpc embeds (findManyParams) returns (stream Embed) {}
+rpc embed (EmbedWhereUniqueInput) returns (Embed) {}
+rpc updateEmbed (EmbedUpdateInput) returns (Embed) {}
+rpc deleteEmbed (EmbedWhereUniqueInput) returns (Embed) {} 
+ }
+message EmbedCreateInput {
+string color = 1;
+string createdAt = 2;
+string dateCreated = 3;
+string description = 4;
+string footer = 5;
+string id = 6;
+string title = 7;
+string updatedAt = 8;
+};
+message Embed {
+string color = 1;
+string createdAt = 2;
+string dateCreated = 3;
+string description = 4;
+string footer = 5;
+string id = 6;
+string title = 7;
+string updatedAt = 8;
+};
+message EmbedWhereUniqueInput {
+string color = 1;
+string createdAt = 2;
+string dateCreated = 3;
+string description = 4;
+string footer = 5;
+string id = 6;
+string title = 7;
+string updatedAt = 8;
+};
+message EmbedUpdateInput {
+string color = 1;
+string createdAt = 2;
+string dateCreated = 3;
+string description = 4;
+string footer = 5;
+string id = 6;
+string title = 7;
+string updatedAt = 8;
+};
+message findManyParams {
+
+};

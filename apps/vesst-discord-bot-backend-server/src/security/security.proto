@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+                 package security;
+service SecurityService {
+ rpc createSecurity (SecurityCreateInput) returns (Security) {}
+rpc securities (findManyParams) returns (stream Security) {}
+rpc security (SecurityWhereUniqueInput) returns (Security) {}
+rpc updateSecurity (SecurityUpdateInput) returns (Security) {}
+rpc deleteSecurity (SecurityWhereUniqueInput) returns (Security) {} 
+ }
+message SecurityCreateInput {
+string action = 1;
+string createdAt = 2;
+string date = 3;
+string id = 4;
+repeated string status = 5;
+string updatedAt = 6;
+};
+message Security {
+string action = 1;
+string createdAt = 2;
+string date = 3;
+string id = 4;
+repeated string status = 5;
+string updatedAt = 6;
+};
+message SecurityWhereUniqueInput {
+string action = 1;
+string createdAt = 2;
+string date = 3;
+string id = 4;
+repeated string status = 5;
+string updatedAt = 6;
+};
+message SecurityUpdateInput {
+string action = 1;
+string createdAt = 2;
+string date = 3;
+string id = 4;
+repeated string status = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+                 package vouch;
+service VouchService {
+ rpc createVouch (VouchCreateInput) returns (Vouch) {}
+rpc vouches (findManyParams) returns (stream Vouch) {}
+rpc vouch (VouchWhereUniqueInput) returns (Vouch) {}
+rpc updateVouch (VouchUpdateInput) returns (Vouch) {}
+rpc deleteVouch (VouchWhereUniqueInput) returns (Vouch) {} 
+ }
+message VouchCreateInput {
+string badge = 1;
+string category = 2;
+string challenge = 3;
+string createdAt = 4;
+string date = 5;
+string id = 6;
+string updatedAt = 7;
+string vouchText = 8;
+};
+message Vouch {
+string badge = 1;
+string category = 2;
+string challenge = 3;
+string createdAt = 4;
+string date = 5;
+string id = 6;
+string updatedAt = 7;
+string vouchText = 8;
+};
+message VouchWhereUniqueInput {
+string badge = 1;
+string category = 2;
+string challenge = 3;
+string createdAt = 4;
+string date = 5;
+string id = 6;
+string updatedAt = 7;
+string vouchText = 8;
+};
+message VouchUpdateInput {
+string badge = 1;
+string category = 2;
+string challenge = 3;
+string createdAt = 4;
+string date = 5;
+string id = 6;
+string updatedAt = 7;
+string vouchText = 8;
+};
+message findManyParams {
+
+};

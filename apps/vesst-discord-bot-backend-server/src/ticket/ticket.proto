@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+                 package ticket;
+service TicketService {
+ rpc createTicket (TicketCreateInput) returns (Ticket) {}
+rpc tickets (findManyParams) returns (stream Ticket) {}
+rpc ticket (TicketWhereUniqueInput) returns (Ticket) {}
+rpc updateTicket (TicketUpdateInput) returns (Ticket) {}
+rpc deleteTicket (TicketWhereUniqueInput) returns (Ticket) {} 
+ }
+message TicketCreateInput {
+string createdAt = 1;
+string dateClosed = 2;
+string dateCreated = 3;
+string id = 4;
+string issue = 5;
+repeated string priority = 6;
+repeated string status = 7;
+string updatedAt = 8;
+};
+message Ticket {
+string createdAt = 1;
+string dateClosed = 2;
+string dateCreated = 3;
+string id = 4;
+string issue = 5;
+repeated string priority = 6;
+repeated string status = 7;
+string updatedAt = 8;
+};
+message TicketWhereUniqueInput {
+string createdAt = 1;
+string dateClosed = 2;
+string dateCreated = 3;
+string id = 4;
+string issue = 5;
+repeated string priority = 6;
+repeated string status = 7;
+string updatedAt = 8;
+};
+message TicketUpdateInput {
+string createdAt = 1;
+string dateClosed = 2;
+string dateCreated = 3;
+string id = 4;
+string issue = 5;
+repeated string priority = 6;
+repeated string status = 7;
+string updatedAt = 8;
+};
+message findManyParams {
+
+};
